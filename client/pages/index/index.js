@@ -6,23 +6,22 @@ Page({
   data: {
     list: [],
   },
-  onLoad: function () {
+  onLoad: function() {
     var that = this
     wx.request({
       url: url,
-      success: function(res){
+      success: function(res) {
         console.log(res.data)
         that.setData({
-          list:res.data
+          list: res.data
         })
       }
-    }
-    )
+    })
   },
-  show_detail: function(e){
+  show_detail: function(e) {
     var filename = e.currentTarget.dataset.filename
     wx.navigateTo({
-      url:"/pages/detail/detail?" + "filename=" + filename
+      url: "/pages/detail/detail?" + "filename=" + filename
     })
   }
 })
