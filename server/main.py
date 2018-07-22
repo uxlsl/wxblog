@@ -3,8 +3,7 @@ from datetime import datetime
 from flask import Flask, json
 
 BLOG_PATH = os.environ.get('BLOG_PATH', 'static')
-print(BLOG_PATH)
-app = Flask(__name__, static_path=BLOG_PATH)
+app = Flask(__name__, static_folder=BLOG_PATH)
 
 
 @app.route("/list")

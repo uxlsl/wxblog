@@ -1,14 +1,10 @@
 //index.js
 //获取应用实例
 const app = getApp()
-const url = "http://localhost:5000/list"
+const url = "https://www.linsl2018.top:7220/list"
 Page({
   data: {
-    list: [{
-      tid:123, title: 'foo',
-    }, {
-      tid:345, title: 'bar'
-    }]
+    list: [],
   },
   onLoad: function () {
     var that = this
@@ -24,7 +20,9 @@ Page({
     )
   },
   show_detail: function(e){
-    console.log(e)
-    console.log(e.currentTarget.dataset.filename)
+    var filename = e.currentTarget.dataset.filename
+    wx.navigateTo({
+      url:"/pages/detail/detail?" + "filename=" + filename
+    })
   }
 })
