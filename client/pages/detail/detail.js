@@ -1,19 +1,25 @@
-
 const app = getApp()
-const url = "http://www.linsl2018.top:7220/static/"
+const url = "https://www.linsl2018.top:7220/static/"
 var md = `*人生苦短，我用Python!*`
 
 Page({
   data: {
-    md:md,
-    filename:null
+    md: md,
+    filename: null
   },
   onLoad: function(options) {
     console.log('onLoad-query:' + options.filename)
-    this.setData({filename:options.filename})
+    this.setData({
+      filename: options.filename
+    })
   },
   onReady: function() {
-    this.query()
+    var callback = function() {
+      this.query()
+    }
+    setTimeout(
+      callback.bind(this), 3000
+    )
   },
   query: function() {
     var that = this
@@ -21,7 +27,9 @@ Page({
       url: url + that.data.filename,
       success: function(res) {
         console.log(res.data)
-        that.setData({md:res.data})
+        that.setData({
+          md: res.data
+        })
       }
     })
   },
