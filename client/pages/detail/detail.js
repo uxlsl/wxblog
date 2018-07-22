@@ -18,7 +18,7 @@ Page({
       this.query()
     }
     setTimeout(
-      callback.bind(this), 3000
+      callback.bind(this), 500
     )
   },
   query: function() {
