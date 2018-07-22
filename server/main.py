@@ -16,5 +16,6 @@ def list_blog():
             dict(filename=f, updated_at=datetime.fromtimestamp(mtime)))
     files = sorted(files, key=lambda a: a['updated_at'], reverse=True)
     for i in files:
+        i['title'] = i['filename'][:i['filename'].rindex('.')]
         i['updated_at'] = i['updated_at'].strftime('%Y-%m-%d %H:%M:%S')
     return json.dumps(files)
